@@ -1,0 +1,26 @@
+replicaCount: 1
+
+image:
+  repository: 709476087242.dkr.ecr.us-east-1.amazonaws.com/user-service
+  tag: bootstrap
+
+environment: dev
+
+service:
+  type: ClusterIP
+  port: 3000
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 250m
+    memory: 256Mi
+
+autoscaling:
+  enabled: false
+
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 1
