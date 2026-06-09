@@ -27,3 +27,7 @@ autoscaling:
 podDisruptionBudget:
   enabled: true
   minAvailable: 2
+
+observability:
+  logging:
+    level: WARN
