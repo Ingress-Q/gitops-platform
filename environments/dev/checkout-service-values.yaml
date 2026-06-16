@@ -1,0 +1,37 @@
+replicaCount: 2
+
+image:
+  repository: 709476087242.dkr.ecr.us-east-1.amazonaws.com/checkout-service
+  tag: 69d6d86bd978f546609a753a39d5297abe153161
+
+environment: dev
+
+service:
+  type: ClusterIP
+  port: 8080
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 70
+
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 1
+
+serviceAccount:
+  create: true
+  name: checkout-service
+
+observability:
+  logging:
+    level: DEBUG
