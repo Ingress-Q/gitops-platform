@@ -1,0 +1,4 @@
+resources:
+  - projects
+  - workloads
+  - platform

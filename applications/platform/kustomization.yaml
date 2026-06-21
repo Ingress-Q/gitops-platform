@@ -1,0 +1,7 @@
+resources:
+  - cert-manager/application.yaml
+  - external-secrets/application.yaml
+  - ingress/application.yaml
+  - monitoring/application.yaml
+  - logging/application.yaml
+  - security/application.yaml

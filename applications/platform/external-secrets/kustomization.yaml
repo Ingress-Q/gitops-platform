@@ -1,0 +1,6 @@
+resources:
+  - catalog-db-secret.yaml
+  - cart-db-secret.yaml
+  - orders-db-secret.yaml
+  - jwt-secret.yaml
+  - api-keys-secret.yaml

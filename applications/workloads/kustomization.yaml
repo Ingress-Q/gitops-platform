@@ -1,0 +1,6 @@
+resources:
+  - catalog-service/base/application.yaml
+  - cart-service/base/application.yaml
+  - checkout-service/base/application.yaml
+  - orders-service/base/application.yaml
+  - ui-service/base/application.yaml

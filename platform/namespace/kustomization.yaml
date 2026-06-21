@@ -1,0 +1,12 @@
+resources:
+  - argocd.yaml
+  - catalog.yaml
+  - cart.yaml
+  - checkout.yaml
+  - orders.yaml
+  - ui.yaml
+  - cert-manager.yaml
+  - external-secrets.yaml
+  - ingress-nginx.yaml
+  - monitoring.yaml
+  - logging.yaml

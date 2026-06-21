@@ -3,16 +3,29 @@ kind: AppProject
 metadata:
   name: workloads
   namespace: argocd
+
 spec:
-  description: Business applications
+  description: Retail workloads
 
   sourceRepos:
     - '*'
 
   destinations:
-    - namespace: dev
+    - namespace: catalog
       server: https://kubernetes.default.svc
-    - namespace: stage
+
+    - namespace: cart
       server: https://kubernetes.default.svc
-    - namespace: prod
+
+    - namespace: checkout
       server: https://kubernetes.default.svc
+
+    - namespace: orders
+      server: https://kubernetes.default.svc
+
+    - namespace: ui
+      server: https://kubernetes.default.svc
+
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
