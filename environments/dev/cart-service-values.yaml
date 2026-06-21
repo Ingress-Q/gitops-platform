@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: 709476087242.dkr.ecr.us-east-1.amazonaws.com/cart-service
-  tag: e2bdfaeea067a81050b363773338c1dfac412cd9
+  tag: 3243932eec8769e92c99fff63b72d0df072eb667
 
 environment: dev
 
