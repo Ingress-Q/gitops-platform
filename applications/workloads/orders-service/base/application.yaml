@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: orders-service
+  name: order-service
   namespace: argocd
 spec:
   project: workloads
   sources:
     - repoURL: https://github.com/Ingress-Q/orders-service.git
       targetRevision: main
-      path: orders-service
+      path: order-service
       helm:
         valueFiles:
           - $values/environments/dev/orders-service-values.yaml
