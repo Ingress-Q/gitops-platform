@@ -9,7 +9,8 @@ spec:
     - repoURL: https://github.com/Ingress-Q/checkout-service.git
       targetRevision: main
       path: checkout-service
-      valueFiles:
+      helm:
+        valueFiles:
           - $values/environments/dev/checkout-service-values.yaml
     - repoURL: https://github.com/Ingress-Q/gitops-platform.git
       targetRevision: main

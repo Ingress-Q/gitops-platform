@@ -9,7 +9,8 @@ spec:
     - repoURL: https://github.com/Ingress-Q/ui-service.git
       targetRevision: main
       path: ui-service
-      valueFiles:
+      helm:
+        valueFiles:
           - $values/environments/dev/ui-service-values.yaml
     - repoURL: https://github.com/Ingress-Q/gitops-platform.git
       targetRevision: main

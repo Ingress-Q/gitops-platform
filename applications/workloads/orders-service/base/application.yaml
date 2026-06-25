@@ -9,7 +9,8 @@ spec:
     - repoURL: https://github.com/Ingress-Q/orders-service.git
       targetRevision: main
       path: orders-service
-      valueFiles:
+      helm:
+        valueFiles:
           - $values/environments/dev/orders-service-values.yaml
     - repoURL: https://github.com/Ingress-Q/gitops-platform.git
       targetRevision: main

@@ -9,7 +9,8 @@ spec:
     - repoURL: https://github.com/Ingress-Q/cart-service.git
       targetRevision: main
       path: cart-service
-      valueFiles:
+      helm:
+        valueFiles:
           - $values/environments/dev/cart-service-values.yaml
     - repoURL: https://github.com/Ingress-Q/gitops-platform.git
       targetRevision: main
