@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: 709476087242.dkr.ecr.us-east-1.amazonaws.com/checkout-service
-  tag: 8535f2fe03a916240e42e259d53547dc583642f3
+  tag: f4370111bdeca69c082f088157f9829dd31522ec
 
 environment: dev
 
