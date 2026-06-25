@@ -45,3 +45,8 @@ ingress:
     alb.ingress.kubernetes.io/group.name: retail-store
   host: ""  # no custom domain — ALB DNS name auto-assigned, leave host unset for path-based routing
   path: /ui
+
+
+env:
+  AWS_REGION: us-east-1
+  AWS_DEFAULT_REGION: us-east-1
