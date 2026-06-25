@@ -8,7 +8,7 @@ spec:
   sources:
     - repoURL: https://github.com/Ingress-Q/catalog-service.git
       targetRevision: main
-      path: helm
+      path: catalog-service
       valueFiles:
           - $values/environments/dev/catalog-service-values.yaml
     - repoURL: https://github.com/Ingress-Q/gitops-platform.git
