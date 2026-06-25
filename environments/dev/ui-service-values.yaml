@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: 709476087242.dkr.ecr.us-east-1.amazonaws.com/ui-service
-  tag: 89a7ce1a97ccf60d35c12aa93b21fa24b1a58dad
+  tag: 18117528e94b64dc79881f262a898c3013dbbed3
 
 environment: dev
 
