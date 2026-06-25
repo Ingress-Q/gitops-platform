@@ -3,20 +3,26 @@ kind: Application
 metadata:
   name: catalog-service
   namespace: argocd
+
 spec:
   project: workloads
+
   sources:
     - repoURL: https://github.com/Ingress-Q/catalog-service.git
       targetRevision: main
       path: catalog-service
-      valueFiles:
+      helm:
+        valueFiles:
           - $values/environments/dev/catalog-service-values.yaml
+
     - repoURL: https://github.com/Ingress-Q/gitops-platform.git
       targetRevision: main
       ref: values
+
   destination:
     server: https://kubernetes.default.svc
     namespace: catalog
+
   syncPolicy:
     automated:
       prune: true
