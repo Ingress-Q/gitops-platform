@@ -1,36 +1,25 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
-
 metadata:
   name: orders-service
   namespace: argocd
-
 spec:
   project: workloads
-
-  source:
-    repoURL: https://github.com/Ingress-Q/order-service.git
-    targetRevision: main
-    path: helm
-
-    helm:
+  sources:
+    - repoURL: https://github.com/Ingress-Q/orders-service.git
+      targetRevision: main
+      path: orders-service
       valueFiles:
-        - $values/environments/dev/orders-service-values.yaml
-
+          - $values/environments/dev/orders-service-values.yaml
+    - repoURL: https://github.com/Ingress-Q/gitops-platform.git
+      targetRevision: main
+      ref: values
   destination:
     server: https://kubernetes.default.svc
     namespace: orders
-
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-
-  sources:
-    - repoURL: https://github.com/Ingress-Q/order-service.git
-      targetRevision: main
-      path: helm
-
-    - repoURL: https://github.com/Ingress-Q/gitops-platform.git
-      targetRevision: main
-      ref: values
+    syncOptions:
+      - CreateNamespace=true

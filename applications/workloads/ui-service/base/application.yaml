@@ -1,36 +1,25 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
-
 metadata:
   name: ui-service
   namespace: argocd
-
 spec:
   project: workloads
-
-  source:
-    repoURL: https://github.com/Ingress-Q/ui-service.git
-    targetRevision: main
-    path: helm
-
-    helm:
+  sources:
+    - repoURL: https://github.com/Ingress-Q/ui-service.git
+      targetRevision: main
+      path: ui-service
       valueFiles:
-        - $values/environments/dev/ui-service-values.yaml
-
+          - $values/environments/dev/ui-service-values.yaml
+    - repoURL: https://github.com/Ingress-Q/gitops-platform.git
+      targetRevision: main
+      ref: values
   destination:
     server: https://kubernetes.default.svc
     namespace: ui
-
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-
-  sources:
-    - repoURL: https://github.com/Ingress-Q/ui-service.git
-      targetRevision: main
-      path: helm
-
-    - repoURL: https://github.com/Ingress-Q/gitops-platform.git
-      targetRevision: main
-      ref: values
+    syncOptions:
+      - CreateNamespace=true

@@ -1,36 +1,25 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
-
 metadata:
   name: cart-service
   namespace: argocd
-
 spec:
   project: workloads
-
-  source:
-    repoURL: https://github.com/Ingress-Q/cart-service.git
-    targetRevision: main
-    path: helm
-
-    helm:
+  sources:
+    - repoURL: https://github.com/Ingress-Q/cart-service.git
+      targetRevision: main
+      path: cart-service
       valueFiles:
-        - $values/environments/dev/cart-service-values.yaml
-
+          - $values/environments/dev/cart-service-values.yaml
+    - repoURL: https://github.com/Ingress-Q/gitops-platform.git
+      targetRevision: main
+      ref: values
   destination:
     server: https://kubernetes.default.svc
     namespace: cart
-
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-
-  sources:
-    - repoURL: https://github.com/Ingress-Q/cart-service.git
-      targetRevision: main
-      path: helm
-
-    - repoURL: https://github.com/Ingress-Q/gitops-platform.git
-      targetRevision: main
-      ref: values
+    syncOptions:
+      - CreateNamespace=true
