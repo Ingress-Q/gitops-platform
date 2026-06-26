@@ -45,3 +45,22 @@ ingress:
     alb.ingress.kubernetes.io/group.name: retail-store
   host: ""  # no custom domain — ALB DNS name auto-assigned, leave host unset for path-based routing
   path: /orders
+
+
+readinessProbe:
+  httpGet:
+    path: /actuator/health
+    port: 8080
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 5
+
+livenessProbe:
+  httpGet:
+    path: /actuator/health
+    port: 8080
+  initialDelaySeconds: 60
+  periodSeconds: 15
+  timeoutSeconds: 5
+  failureThreshold: 5
