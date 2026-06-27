@@ -32,6 +32,9 @@ spec:
     - namespace: kube-system
       server: https://kubernetes.default.svc
 
+    - namespace: security        # add this
+      server: https://kubernetes.default.svc
+
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'
