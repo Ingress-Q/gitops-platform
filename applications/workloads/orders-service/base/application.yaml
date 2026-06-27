@@ -8,7 +8,7 @@ spec:
   sources:
     - repoURL: https://github.com/Ingress-Q/orders-service.git
       targetRevision: main
-      path: order-service
+      path: orders-service
       helm:
         valueFiles:
           - $values/environments/dev/orders-service-values.yaml
