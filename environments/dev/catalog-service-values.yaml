@@ -44,5 +44,5 @@ ingress:
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/group.name: retail-store
   host: ""  # no custom domain — ALB DNS name auto-assigned, leave host unset for path-based routing
-  path: /catalogue
-  healthCheckPath: /actuator/health
+  path: /catalog
+  healthCheckPath: /health
