@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: 709476087242.dkr.ecr.us-east-1.amazonaws.com/order-service
-  tag: 7fe407ed929c5221b6233dab9bd5712c04b252c3
+  tag: edc487e50084a828762fc2f0b1ba1ddf6ad0578a
 
 environment: dev
 
